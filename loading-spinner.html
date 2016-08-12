@@ -1,0 +1,88 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-spinner/paper-spinner.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+
+<!--
+A polymer web component that shows loading text and a spinner.
+
+Example:
+
+        <loading-spinner
+          type="Data"
+          show>
+        </loading-spinner>
+
+@demo demo/index.html
+-->
+
+<dom-module id="loading-spinner">
+  <template>
+    <style include="iron-flex iron-flex-alignment"></style>
+
+    <style>
+      :host {
+        display: block;
+      }
+
+      div {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      span {
+        font-size: 14px;
+        line-height: 30px;
+      }
+
+      paper-spinner {
+        margin-right: 10px;
+        height: 20px;
+        width: 20px;
+        /* Make the spinner align vertically with the loading text. */
+        top: 4px;
+      }
+    </style>
+
+    <template is="dom-if" if="[[show]]">
+      <div>
+        <paper-spinner active$="[[show]]"></paper-spinner>
+        <span>[[getLoadingText(type)]]</span>
+      </div>
+    </template>
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'loading-spinner',
+
+      properties: {
+        /**
+         * Whether to show the loading spinner.
+         */
+        show: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * The type to show in the loading text.
+         */
+        type: {
+          type: String,
+          value: ''
+        }
+      },
+
+      /**
+       * Returns the loading text based on the given type.
+       */
+      getLoadingText: function(type) {
+        return type ? 'Loading ' + type + '...' : 'Loading...';
+      }
+    });
+  })();
+  </script>
+</dom-module>

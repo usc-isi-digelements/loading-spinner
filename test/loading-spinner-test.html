@@ -1,0 +1,49 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../loading-spinner.html">
+</head>
+
+<body>
+  <test-fixture id="loading-spinner-fixture">
+    <template>
+      <loading-spinner></loading-spinner>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('loading-spinner tests', function() {
+      var component;
+
+      setup(function() {
+        component = fixture('loading-spinner-fixture');
+      });
+
+      test('properties are set to default values', function() {
+        expect(component.show).to.be.false;
+        expect(component.type).to.equal('');
+      });
+
+      test('getLoadingText does return a string', function() {
+        expect(component.getLoadingText('')).is.a('String');
+        expect(component.getLoadingText('type')).is.a('String');
+      });
+
+      test('does not show spinner', function() {
+        expect(component.$$('paper-spinner')).to.not.exist;
+      });
+
+      test('does show spinner if show is true', function(done) {
+        component.show = true;
+        flush(function() {
+          expect(component.$$('paper-spinner')).to.exist;
+          done();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
