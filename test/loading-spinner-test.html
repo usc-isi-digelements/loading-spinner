@@ -32,17 +32,35 @@
         expect(component.getLoadingText('type')).is.a('String');
       });
 
-      test('does not show spinner', function() {
+      test('does not show spinner or text', function() {
+        expect(component.$$('div')).to.not.exist;
         expect(component.$$('paper-spinner')).to.not.exist;
+        expect(component.$$('span')).to.not.exist;
       });
 
       test('does show spinner if show is true', function(done) {
         component.show = true;
         flush(function() {
+          expect(component.$$('div')).to.exist;
           expect(component.$$('paper-spinner')).to.exist;
+          expect(component.$$('paper-spinner').active).to.be.true;
+          expect(component.$$('span').textContent).to.equal('Loading...');
           done();
         });
       });
+
+      test('does show spinner if show is true and text based on type input', function(done) {
+        component.show = true;
+        component.type = 'facets';
+        flush(function() {
+          expect(component.$$('div')).to.exist;
+          expect(component.$$('paper-spinner')).to.exist;
+          expect(component.$$('paper-spinner').active).to.be.true;
+          expect(component.$$('span').textContent).to.equal('Loading facets...');
+          done();
+        });
+      });
+
     });
   </script>
 </body>
