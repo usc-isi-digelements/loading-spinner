@@ -29,7 +29,9 @@
 
       test('getLoadingText does return a string', function() {
         expect(component.getLoadingText('')).is.a('String');
+        expect(component.getLoadingText('')).to.equal('Loading...');
         expect(component.getLoadingText('type')).is.a('String');
+        expect(component.getLoadingText('type')).to.equal('Loading type...');
       });
 
       test('does not show spinner or text', function() {
