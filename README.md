@@ -1,13 +1,10 @@
 # loading-spinner
 
-A polymer web component that shows loading text and a spinner.
+A Polymer Element showing loading text and a spinner.
 
-Example:
+### Example
 ```html
-        <loading-spinner
-          type="Data"
-          show>
-        </loading-spinner>
+    <loading-spinner type="Data" show></loading-spinner>
 ```
 
 ### Dependencies

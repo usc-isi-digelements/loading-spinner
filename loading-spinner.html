@@ -3,14 +3,11 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 
 <!--
-A polymer web component that shows loading text and a spinner.
+A Polymer Element showing loading text and a spinner.
 
-Example:
+### Example
 
-        <loading-spinner
-          type="Data"
-          show>
-        </loading-spinner>
+    <loading-spinner type="Data" show></loading-spinner>
 
 @demo demo/index.html
 -->
@@ -46,7 +43,7 @@ Example:
     <template is="dom-if" if="[[show]]">
       <div>
         <paper-spinner active$="[[show]]"></paper-spinner>
-        <span>[[getLoadingText(type)]]</span>
+        <span>[[_getLoadingText(type)]]</span>
       </div>
     </template>
   </template>
@@ -61,6 +58,9 @@ Example:
       properties: {
         /**
          * Whether to show the loading spinner.
+         *
+         * @type {Boolean}
+         * @default false
          */
         show: {
           type: Boolean,
@@ -69,6 +69,9 @@ Example:
 
         /**
          * The type to show in the loading text.
+         *
+         * @type {String}
+         * @default ''
          */
         type: {
           type: String,
@@ -78,8 +81,12 @@ Example:
 
       /**
        * Returns the loading text based on the given type.
+       *
+       * @param {String} type
+       * @return {String}
+       * @private
        */
-      getLoadingText: function(type) {
+      _getLoadingText: function(type) {
         return type ? 'Loading ' + type + '...' : 'Loading...';
       }
     });

@@ -16,53 +16,52 @@
 
   <script>
     suite('loading-spinner tests', function() {
-      var component;
+      var element;
 
       setup(function() {
-        component = fixture('loading-spinner-fixture');
+        element = fixture('loading-spinner-fixture');
       });
 
       test('properties are set to default values', function() {
-        expect(component.show).to.be.false;
-        expect(component.type).to.equal('');
+        expect(element.show).to.be.false;
+        expect(element.type).to.equal('');
       });
 
-      test('getLoadingText does return a string', function() {
-        expect(component.getLoadingText('')).is.a('String');
-        expect(component.getLoadingText('')).to.equal('Loading...');
-        expect(component.getLoadingText('type')).is.a('String');
-        expect(component.getLoadingText('type')).to.equal('Loading type...');
+      test('_getLoadingText does return a string', function() {
+        expect(element._getLoadingText('')).is.a('String');
+        expect(element._getLoadingText('')).to.equal('Loading...');
+        expect(element._getLoadingText('type')).is.a('String');
+        expect(element._getLoadingText('type')).to.equal('Loading type...');
       });
 
       test('does not show spinner or text', function() {
-        expect(component.$$('div')).to.not.exist;
-        expect(component.$$('paper-spinner')).to.not.exist;
-        expect(component.$$('span')).to.not.exist;
+        expect(element.$$('div')).to.not.exist;
+        expect(element.$$('paper-spinner')).to.not.exist;
+        expect(element.$$('span')).to.not.exist;
       });
 
       test('does show spinner if show is true', function(done) {
-        component.show = true;
+        element.show = true;
         flush(function() {
-          expect(component.$$('div')).to.exist;
-          expect(component.$$('paper-spinner')).to.exist;
-          expect(component.$$('paper-spinner').active).to.be.true;
-          expect(component.$$('span').textContent).to.equal('Loading...');
+          expect(element.$$('div')).to.exist;
+          expect(element.$$('paper-spinner')).to.exist;
+          expect(element.$$('paper-spinner').active).to.be.true;
+          expect(element.$$('span').textContent).to.equal('Loading...');
           done();
         });
       });
 
       test('does show spinner if show is true and text based on type input', function(done) {
-        component.show = true;
-        component.type = 'facets';
+        element.show = true;
+        element.type = 'facets';
         flush(function() {
-          expect(component.$$('div')).to.exist;
-          expect(component.$$('paper-spinner')).to.exist;
-          expect(component.$$('paper-spinner').active).to.be.true;
-          expect(component.$$('span').textContent).to.equal('Loading facets...');
+          expect(element.$$('div')).to.exist;
+          expect(element.$$('paper-spinner')).to.exist;
+          expect(element.$$('paper-spinner').active).to.be.true;
+          expect(element.$$('span').textContent).to.equal('Loading facets...');
           done();
         });
       });
-
     });
   </script>
 </body>
