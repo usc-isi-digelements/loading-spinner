@@ -26,6 +26,14 @@ A Polymer Element showing loading text and a spinner.
 <loading-spinner type="Data" show></loading-spinner>
 ```
 
+### Styling
+
+`<loading-spinner>` provides the following custom properties and mixins for styling:
+
+Custom property           | Description                    | Default
+--------------------------|--------------------------------|--------
+`--loading-spinner-mixin` | Mixin for the loading spinner. | {}
+
 @demo demo/index.html
 -->
 
@@ -38,29 +46,23 @@ A Polymer Element showing loading text and a spinner.
         display: block;
       }
 
-      div {
+      .loading-spinner-wrapper {
         margin-top: 10px;
-        text-align: center;
-      }
-
-      span {
         font-size: 14px;
-        line-height: 30px;
+        @apply --loading-spinner-mixin;
       }
 
       paper-spinner {
         margin-right: 10px;
         height: 20px;
         width: 20px;
-        /* Make the spinner align vertically with the loading text. */
-        top: 4px;
       }
     </style>
 
     <template is="dom-if" if="[[show]]">
-      <div>
+      <div class="layout horizontal center center-justified loading-spinner-wrapper">
         <paper-spinner active$="[[show]]"></paper-spinner>
-        <span>[[_getLoadingText(type)]]</span>
+        <div class="loading-spinner-content">[[_getLoadingText(type)]]</div>
       </div>
     </template>
   </template>

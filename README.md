@@ -7,6 +7,14 @@ A Polymer Element showing loading text and a spinner.
 <loading-spinner type="Data" show></loading-spinner>
 ```
 
+### Styling
+
+`<loading-spinner>` provides the following custom properties and mixins for styling:
+
+Custom property           | Description                    | Default
+--------------------------|--------------------------------|--------
+`--loading-spinner-mixin` | Mixin for the loading spinner. | {}
+
 ### Dependencies
 
 Dependencies are installed using [Bower](http://bower.io/):

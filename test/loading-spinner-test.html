@@ -51,30 +51,32 @@ limitations under the License.
       });
 
       test('does not show spinner or text', function() {
-        expect(element.$$('div')).to.not.exist;
+        expect(element.$$('.loading-spinner-wrapper')).to.not.exist;
+        expect(element.$$('.loading-spinner-content')).to.not.exist;
         expect(element.$$('paper-spinner')).to.not.exist;
-        expect(element.$$('span')).to.not.exist;
       });
 
       test('does show spinner if show is true', function(done) {
         element.show = true;
         flush(function() {
-          expect(element.$$('div')).to.exist;
+          expect(element.$$('.loading-spinner-wrapper')).to.exist;
+          expect(element.$$('.loading-spinner-content')).to.exist;
+          expect(element.$$('.loading-spinner-content').textContent).to.equal('Loading...');
           expect(element.$$('paper-spinner')).to.exist;
           expect(element.$$('paper-spinner').active).to.be.true;
-          expect(element.$$('span').textContent).to.equal('Loading...');
           done();
         });
       });
 
       test('does show spinner if show is true and text based on type input', function(done) {
         element.show = true;
-        element.type = 'facets';
+        element.type = 'Data';
         flush(function() {
-          expect(element.$$('div')).to.exist;
+          expect(element.$$('.loading-spinner-wrapper')).to.exist;
+          expect(element.$$('.loading-spinner-content')).to.exist;
+          expect(element.$$('.loading-spinner-content').textContent).to.equal('Loading Data...');
           expect(element.$$('paper-spinner')).to.exist;
           expect(element.$$('paper-spinner').active).to.be.true;
-          expect(element.$$('span').textContent).to.equal('Loading facets...');
           done();
         });
       });

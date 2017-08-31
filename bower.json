@@ -1,7 +1,7 @@
 {
   "name": "loading-spinner",
   "description": "A Polymer Element showing loading text and a spinner.",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "authors": ["Next Century Corporation"],
   "license": "Apache-2.0",
   "keywords": [
@@ -9,19 +9,18 @@
     "polymer"
   ],
   "main": "loading-spinner.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/DigElements/loading-spinner/",
   "ignore": [
     "/.*",
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.7.0",
-    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#1.3.1"
+    "polymer": "Polymer/polymer#^2.0.2",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0",
+    "paper-spinner": "PolymerElements/paper-spinner#^2.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
-    "web-component-tester": "^5.0.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
+    "web-component-tester": "^6.0.0"
   }
 }
