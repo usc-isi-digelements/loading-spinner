@@ -9,7 +9,7 @@
     "polymer"
   ],
   "main": "loading-spinner.html",
-  "homepage": "https://github.com/DigElements/loading-spinner/",
+  "homepage": "https://github.com/usc-isi-digelements/loading-spinner/",
   "ignore": [
     "/.*",
     "/test/"
